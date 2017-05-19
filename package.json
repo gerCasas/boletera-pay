@@ -1,0 +1,22 @@
+{
+  "name": "boletera-pay",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "inferno-scripts": "3.0.0"
+  },
+  "dependencies": {
+    "babel-plugin-inferno": "^3.2.0",
+    "bootstrap": "^3.3.7",
+    "inferno": "^3.1.1",
+    "inferno-component": "^3.1.1",
+    "inferno-mobx": "^3.1.1",
+    "mobx": "^3.1.9"
+  },
+  "scripts": {
+    "start": "PORT=3001 inferno-scripts start",
+    "build": "inferno-scripts build",
+    "test": "inferno-scripts test --env=jsdom",
+    "eject": "inferno-scripts eject"
+  }
+}
