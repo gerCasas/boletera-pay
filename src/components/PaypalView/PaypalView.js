@@ -3,9 +3,7 @@ import './PaypalView.css';
 const PaypalView = function(props) {
   return (
    <div>
-     <div className="square-debugg-paypal">
-       <h1 className="no-margin">Test contenido paypal</h1>
-     </div>
+     <button className="btn btn-warning paypal-btn-cstm">Continuar con Paypal <i className="fa fa-paypal fa-cog" aria-hidden="true"></i></button>
    </div>
   )
 }

@@ -50,7 +50,7 @@ class PayOptions extends Component {
     return (
       <div>
 
-        <div className="col-xs-12 col-sm-4 sidebar-offcanvas" id="sidebar">
+        <div className="sidebar-offcanvas text-align-center" id="sidebar">
           <div className="list-group">
 
             <Link to={"/paypal-opcion/"}>

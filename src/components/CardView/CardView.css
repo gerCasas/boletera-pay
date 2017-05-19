@@ -1,3 +1,17 @@
-.square-debugg-card {
-  background-color: orange;
+.max-width-80 {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .max-width-80 {
+    max-width: 100%;
+  }
+}
+
+.fa-cog {
+  color: white;
+}
+
+.paypal-btn-cstm {
+  height: 45px!important;
 }

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .App-logo {
@@ -16,4 +16,10 @@ code {
 
 .margin-top-60 {
   margin-top: 100px!important;
+}
+
+.border-custom {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 20px;
 }
