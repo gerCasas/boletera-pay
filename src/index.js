@@ -6,6 +6,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import App from './App';
 import ErrorRequestPage from './components/ErrorRequestPage/ErrorRequestPage';
 import CreditCartInfo from './components/CreditCartInfo/CreditCartInfo';
+import PaypalView from './components/PaypalView/PaypalView';
+import CardView from './components/CardView/CardView';
 // import PayOptions from './components/PayOptions/PayOptions';
 import Home from './components/Home/Home';
 import './index.css';
@@ -23,6 +25,8 @@ const routes = (
 
         <Route path="/:token/:amount/:description" component={ Home }/>
         <Route path="/openpay/:token/:amount/:description" component={ CreditCartInfo }/>
+        <Route path="/paypal-opcion/" component={ PaypalView }/>
+        <Route path="/tarjeta-opcion/" component={ CardView }/>
 
         <Route path="*" component={ ErrorRequestPage }/>
       </Route>

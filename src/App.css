@@ -13,3 +13,7 @@ code {
 .no-margin {
   margin: 0!important;
 }
+
+.margin-top-60 {
+  margin-top: 100px!important;
+}

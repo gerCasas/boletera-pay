@@ -1,6 +1,8 @@
 import Component from 'inferno-component';
 import './App.css';
 import logo from "../public/favicon.ico"
+import PayOptions from "./components/PayOptions/PayOptions"
+// import Header from "./components/Header/Header"
 
 class App extends Component {
 
@@ -21,9 +23,18 @@ class App extends Component {
           </div>
         </nav>
 
-        {
-          children
-        }
+        <div className="margin-top-60">
+          <div className="container">
+            <div className="row ">
+              <PayOptions />
+              <div className="col-xs-12 col-md-8">
+                {
+                  children
+                }
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     );

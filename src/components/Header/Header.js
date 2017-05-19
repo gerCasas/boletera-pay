@@ -6,11 +6,7 @@ class Header extends Component {
 
     return (
       <div>
-
-        <div className="page-header App-header">
-          <h1><small>Selecciona el método de pago</small></h1>
-        </div>
-
+        
       </div>
     );
   }

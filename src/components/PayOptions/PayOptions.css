@@ -5,3 +5,18 @@
 .margin-top-10 {
   margin-top: 10px;
 }
+
+.jumbotron-flat {
+  background-color: solid #4DB8FFF;
+  height: 100%;
+  border: 1px solid #4DB8FF;
+  background: white!important;
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+  padding: 10px!important;
+}
+
+.paymentAmt {
+  font-size: 60px;
+}
