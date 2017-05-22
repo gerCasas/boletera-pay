@@ -3,7 +3,7 @@
   margin: 0!important;
 }
 .margin-top-10 {
-  margin-top: 10px;
+  margin-top: 10px!important;
 }
 
 .jumbotron-flat {
@@ -18,7 +18,7 @@
 }
 
 .paymentAmt {
-  font-size: 60px;
+  font-size: 48px;
 }
 
 .text-align-center {

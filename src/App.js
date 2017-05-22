@@ -26,10 +26,11 @@ class App extends Component {
         <div className="margin-top-60">
           <div className="container">
             <div className="row ">
-              <div className="col-xs-12 col-md-4">
+              <div className="col-xs-12 col-md-3">
                 <PayOptions />
               </div>
-              <div className="col-xs-12 col-md-7 col-md-offset-1 border-custom">
+
+              <div className="col-xs-12 col-md-8  border-custom">
                 {
                   children
                 }

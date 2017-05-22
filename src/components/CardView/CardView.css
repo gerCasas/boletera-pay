@@ -1,17 +1,72 @@
 .max-width-80 {
   max-width: 100%;
 }
-
 @media screen and (max-width: 992px) {
   .max-width-80 {
     max-width: 100%;
   }
 }
-
 .fa-cog {
   color: white;
 }
-
 .paypal-btn-cstm {
   height: 45px!important;
+  margin-top: 20px;
+}
+.width-form-custom {
+  width: 30%;
+}
+.no-padding-left {
+  padding-left: 0px!important;
+}
+.no-padding-right {
+  padding-right: 0px!important;
+}
+.debit-card-view {
+  background-image: url("./images/cards11.png");
+  /*margin-left: 20px;*/
+  /*width: 540px;*/
+}
+.debit-card-view-2 {
+  background-image: url("./images/cards22.png");
+}
+.credit-card-view {
+  background-image: url("./images/cards1.png");
+  /*border-right: 1px solid #ccc;*/
+  /*margin-left: 30px;*/
+  width: 209px;
+}
+.card-expl-card-view {
+  /*float: left;*/
+  height: 80px;
+  margin: 20px 0;
+  width: 800px;
+}
+.card-expl-card-view-custom-position {
+  background-position: left 45px;
+  background-repeat: no-repeat;
+  height: 75px;
+  padding-top: 10px;
+}
+.card-expl-custom-border {
+  background-repeat: no-repeat;
+  height: 35px;
+}
+.custom-columns-cards-1 {
+  float: left;
+  width: 40%;
+}
+.custom-columns-cards-2 {
+  float: left;
+  width: 60%;
+}
+@media screen and (max-width: 520px) {
+  .custom-columns-cards-1 {
+    float: none;
+    width: 100%;
+  }
+  .custom-columns-cards-2 {
+    float: none;
+    width: 100%;
+  }
 }

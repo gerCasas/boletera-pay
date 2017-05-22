@@ -64,7 +64,7 @@ class PayOptions extends Component {
 
           <div className="jumbotron jumbotron-flat">
             <div className="center">
-              <h2><i>SALDO A PAGAR:</i></h2>
+              <h4>SALDO A PAGAR:</h4>
             </div>
             <div className="paymentAmt">$100</div>
           </div>
