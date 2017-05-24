@@ -13,7 +13,7 @@ import Home from './components/Home/Home';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-let chargeParams = observable({ token:'', amount: '', description: '' })
+let chargeParams = observable({ token:'', amount: '0', description: '' })
 
 const browserHistory = createBrowserHistory();
 const routes = (
@@ -32,4 +32,15 @@ const routes = (
   </Provider>
 );
 
+const footer = (
+  <footer className="footer">
+    <div className="container">
+      <span className="text-muted">
+        Iconos 2017
+      </span>
+    </div>
+  </footer>
+);
+
 render(routes , document.getElementById('app'));
+render(footer , document.getElementById('footer'));

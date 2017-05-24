@@ -1,8 +1,10 @@
 import ApiServicePay from '../../utils/ApiServicePay';
 import Component from 'inferno-component';
+import { connect } from 'inferno-mobx';
 import './CardView.css';
 
 
+const CardView = connect (['chargeParams'],
 class CardView extends Component {
 
   constructor(props) {
@@ -28,12 +30,21 @@ class CardView extends Component {
 
   handleSubmit(event) {
 
+    if (this.props.chargeParams.amount === '0' || this.props.chargeParams.amount === '' || this.props.chargeParams.amount === undefined ) {
+
+      this.setState({
+        alert_message: 'El saldo a pagar tiene que se mayor a cero.',
+      });
+      event.preventDefault();
+      return
+    }
+
     let instance = this;
     this.setState({
       buy_button_state: '1',
       buy_button_icon: 'fa fa-circle-o-notch fa-spin'
     });
-    console.log("EVEEENTSS");
+    // console.log("EVEEENTSS");
 
     window.OpenPay.setId('mwhtkgq2w0ml9ianvfe0');
     window.OpenPay.setApiKey('pk_bfe456b162c8400bb2819793c2d540d9');
@@ -43,12 +54,13 @@ class CardView extends Component {
     window.OpenPay.token.extractFormAndCreate('payment-form', sucess_callbak, error_callbak);
 
     function sucess_callbak(response) {
-      console.log("SUCCESS RESPONSE");
+      // console.log("SUCCESS RESPONSE");
+      // console.log(instance ,"SUCCESS RESPONSE");
       var token_id = response.data.id;
-      console.log(token_id, "TOOOKEN");
-      console.log(deviceDataId, "DEVICEEEE");
+      // console.log(token_id, "TOOOKEN");
+      // console.log(deviceDataId, "DEVICEEEE");
 
-      ApiServicePay.ChargeOpenPay("card", token_id, deviceDataId, 10)
+      ApiServicePay.ChargeOpenPay("card", token_id, deviceDataId, instance.props.chargeParams.amount)
       .then(
         res => {
           console.log(res, "RESPUESTA");
@@ -65,12 +77,12 @@ class CardView extends Component {
 
     function error_callbak(response) {
       var desc = response.data.description != undefined ? response.data.description : response.message;
-      console.log("ERROR [" + response.status + "] " + desc);
-      console.log("^^^^^^^");
-      console.log(response);
-      console.log("^^^^^^^");
+      // console.log("ERROR [" + response.status + "] " + desc);
+      // console.log("^^^^^^^");
+      // console.log(response);
+      // console.log("^^^^^^^");
 
-      console.log(instance);
+      // console.log(instance);
       let mesageError = '';
       // let mesageErrorArray = [];
       // switch (response.status) {
@@ -108,6 +120,7 @@ class CardView extends Component {
 
   render(props, state) {
 
+    //TODO: Alerta en view paypal similar a esta, la alerta se podria hacer component
     var myAlertContent;
     if (state.alert_message != '') myAlertContent = <div id="alert-options" className="alert alert-danger no-margin-bottom" role="alert">{state.alert_message}</div>
 
@@ -190,6 +203,6 @@ class CardView extends Component {
      </div>
    );
   }
-}
+})
 
 export default CardView;
