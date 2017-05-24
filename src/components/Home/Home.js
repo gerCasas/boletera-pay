@@ -4,7 +4,7 @@ const Home = function(props) {
   return (
    <div>
      <div className="square-debugg">
-       <h1 className="no-margin">Test contenido HOME</h1>
+       <p className="title-pay-method-info">Selecciona un método de pago para continuar</p>
      </div>
    </div>
   )

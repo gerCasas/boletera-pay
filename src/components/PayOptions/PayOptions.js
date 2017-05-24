@@ -2,6 +2,7 @@ import {linkEvent} from 'inferno';
 import { Link } from 'inferno-router';
 import Component from 'inferno-component';
 import './PayOptions.css';
+import { connect } from 'inferno-mobx';
 // import ApiService from '../.././utils/ApiServicePay';
 
 // function handleClick(props) {
@@ -36,6 +37,7 @@ function changeActive(props) {
   });
 }
 
+const PayOptions = connect (['chargeParams'],
 class PayOptions extends Component {
 
   constructor() {
@@ -66,13 +68,17 @@ class PayOptions extends Component {
             <div className="center">
               <h4>SALDO A PAGAR:</h4>
             </div>
-            <div className="paymentAmt">$100</div>
+            <div className="paymentAmt">{`$`+props.chargeParams.amount}</div>
+            <div className="center">
+              <h4>Concepto:</h4>
+              <h4>{props.chargeParams.description}</h4>
+            </div>
           </div>
         </div>
 
       </div>
     );
   }
-}
+})
 
 export default PayOptions;
