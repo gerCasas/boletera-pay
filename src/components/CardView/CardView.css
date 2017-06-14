@@ -70,3 +70,7 @@
     width: 100%;
   }
 }
+
+.border-outline-error-color {
+  border: 2px solid rgb(244, 102, 128);
+}

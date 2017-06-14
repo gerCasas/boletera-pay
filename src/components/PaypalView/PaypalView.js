@@ -2,20 +2,26 @@ import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import ApiService from '../.././utils/ApiServicePay';
 import { connect } from 'inferno-mobx';
+import ErrorAlert from '../ErrorAlert/ErrorAlert';
 import './PaypalView.css';
 
-function handleClick(props) {
+function handleClick(obj) {
 
-  console.log(props, "propsss");
+  // console.log(obj, "propsss");
 
   // console.log(props.amount, "AMOUNT");
-  if (props.amount === '' || props.amount === '0' || props.token === '' || props.amount === undefined || props.token === undefined) {
+  if (obj.props.amount === '' || obj.props.amount === '0' || obj.props.token === '' || obj.props.amount === undefined || obj.props.token === undefined) {
     // console.log("RETURN");
     // console.log(props);
+
+    obj.instance.setState({
+      alert_message: 'El saldo a pagar tiene que se mayor a cero.'
+    });
+
   } else {
     // console.log("si");
     // console.log(props);
-    ApiService.sendPay("paypal", props.token, props.amount)
+    ApiService.sendPay("paypal", obj.props.token, obj.props.amount)
     .then(
       res => {
         if (res !== '#my404') {
@@ -35,17 +41,28 @@ function handleClick(props) {
 const PaypalView = connect (['chargeParams'],
 class PaypalView extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      alert_message: ''
+    }
+  }
+
   render(props, state) {
 
-    console.log(this.props.chargeParams);
+    let myAlertContent;
+    if (state.alert_message != '') myAlertContent = <ErrorAlert description={state.alert_message}/>
 
     return (
      <div>
+
+      {myAlertContent}
+
       <div className="paypal-logo-container">
         <div className="paypal-logo" />
       </div>
 
-      <button className="btn btn-warning paypal-btn-cstm" onClick={ linkEvent(this.props.chargeParams, handleClick) } >Continuar con Paypal <i className="fa fa-paypal fa-cog" aria-hidden="true"></i></button>
+      <button className="btn btn-warning paypal-btn-cstm" onClick={ linkEvent({props: this.props.chargeParams, instance: this}, handleClick) } >Continuar con Paypal <i className="fa fa-paypal fa-cog" aria-hidden="true"></i></button>
      </div>
     )
   };

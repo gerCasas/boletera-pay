@@ -2,6 +2,7 @@ import ApiServicePay from '../../utils/ApiServicePay';
 import Component from 'inferno-component';
 import { connect } from 'inferno-mobx';
 import './CardView.css';
+import ErrorAlert from '../ErrorAlert/ErrorAlert';
 
 
 const CardView = connect (['chargeParams'],
@@ -83,7 +84,7 @@ class CardView extends Component {
       // console.log("^^^^^^^");
 
       // console.log(instance);
-      let mesageError = '';
+      // let mesageError = '';
       // let mesageErrorArray = [];
       // switch (response.status) {
       //   case 400:
@@ -106,10 +107,10 @@ class CardView extends Component {
       //   break;
       // }
 
-      mesageError = response.data.description
+      // mesageError = response.data.description
 
       instance.setState({
-        alert_message: mesageError,
+        alert_message: desc,
         buy_button_state: '',
         buy_button_icon: 'fa fa-credit-card'
       });
@@ -120,9 +121,9 @@ class CardView extends Component {
 
   render(props, state) {
 
-    //TODO: Alerta en view paypal similar a esta, la alerta se podria hacer component
     var myAlertContent;
-    if (state.alert_message != '') myAlertContent = <div id="alert-options" className="alert alert-danger no-margin-bottom" role="alert">{state.alert_message}</div>
+    // if (state.alert_message != '') myAlertContent = <div id="alert-options" className="alert alert-danger no-margin-bottom" role="alert">{state.alert_message}</div>
+    if (state.alert_message != '') myAlertContent = <ErrorAlert description={state.alert_message}/>
 
     return (
      <div>
